@@ -8,8 +8,33 @@
 
     <h1>Hawooo, akulah CY BOTAK! 👋</h1>
     <p>ahihihihi</p>
-    <a href="#">Klik di sini</a>
-    <img src="https://pbs.twimg.com/media/EvImwoQUcAEsiM5.jpg" alt="gambar">
+    
+    <div class="container">
+        <img src="https://pbs.twimg.com/media/EvImwoQUcAEsiM5.jpg" 
+             alt="gambar" 
+             onclick="klikGambar()">
+
+        <button onclick="tombolKlik()" class="btn-biru">Klik di sini</button>
+
+        <!-- 🔥 WAJIB ADA -->
+        <div id="tempatGambar"></div>
+    </div>
+
+    <script>
+    function halo() {
+        alert("Halo, dari aku CY BOTAK 😎");
+    }
+
+    function klikGambar() {
+        var tempat = document.getElementById("tempatGambar");
+
+        tempat.innerHTML += '<img src="https://i.pinimg.com/originals/0e/1d/ce/0e1dce10fab9b554efeb15e832290675.gif">';
+    }
+
+    function tombolKlik() {
+        alert("TUGAS AKHIR DIKERJAIN BOIII 🙊 coba klik gambar cy");
+    }        
+    </script>
 
 </body>
 </html>

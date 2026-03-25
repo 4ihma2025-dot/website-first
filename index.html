@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CY BOTAK | Legal Tech 🚀</title>
+    <title>CY BOTAK LAW FIRM ⚖️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,10 +10,11 @@
 <!-- 🔥 NAVBAR -->
 <nav class="navbar">
     <h2>CY BOTAK LAW FIRM</h2>
+
     <ul>
         <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#Our Team">Our Team</a></li>
+        <li><a href="#about">Our Project</a></li>
+        <li><a href="#team">Our Team</a></li>
     </ul>
 
     <button onclick="toggleDark()">🌙</button>
@@ -22,53 +23,50 @@
 <!-- 🔥 HERO -->
 <section class="hero" id="hero">
     <div class="hero-content">
-        <h1 class="hero-title">Building Legal Tech Future 🚀 
-            Based on Legal Excellence & Integrity
-        </h1>
-        <p class="hero-subtitle">
-    Providing trusted legal solutions for modern business challenges
-        </p>
-        <button class="cta">Explore My Work</button>
+        <h1>Legal Excellence & Integrity</h1>
+        <p>Providing trusted legal solutions</p>
+
+        <button class="cta" onclick="bukaKontak()">Contact Us</button>
     </div>
 </section>
 
 <!-- 🔥 ABOUT -->
 <section class="about fade" id="about">
-    <h2>About Our Firm</h2>
+    <h2>Our Project</h2>
     <p>
-    We are a modern legal practice combining legal expertise with technology 
-    to deliver efficient and innovative solutions.
+        We are a modern legal practice combining legal expertise with technology 
+        to deliver efficient and innovative solutions.
     </p>
 </section>
 
 <!-- 🔥 SKILLS -->
-<h2>Practice Areas</h2>
-<div class="skill-box">
-    <p>⚖️ Corporate Law</p>
-    <p>📜 Contract Law</p>
-    <p>💼 Business Advisory</p>
-    <p>🌐 Legal Tech</p>
-</div>
+<section class="skills fade">
+    <h2>Practice Areas</h2>
+
+    <div class="skill-box">
+        <p>⚖️ Corporate Law</p>
+        <p>📜 Contract Law</p>
+        <p>💼 Business Advisory</p>
+        <p>🌐 Legal Tech</p>
+    </div>
 </section>
 
-<!-- 🔥 PROJECT -->
-<section class="project fade" id="project">
-    <h2>OUR TEAM💸</h2>
+<!-- 🔥 TEAM -->
+<section class="project fade" id="team">
+    <h2>Our Team</h2>
 
     <div class="card">
-    <img src="https://pbs.twimg.com/media/EvImwoQUcAEsiM5.jpg"
-         class="profile-img"
-         onclick="klikGambar()">
+        <img src="https://pbs.twimg.com/media/EvImwoQUcAEsiM5.jpg" class="profile-img">
 
-    <h3 class="nama">Chanyeol</h3>
-    <p class="jabatan">Managing Partner</p>
+        <h3 class="nama">Chanyeol</h3>
+        <p class="jabatan">Managing Partner</p>
 
-    <button onclick="tombolKlik()" class="btn">
-        Klik di sini
-    </button>
+        <button onclick="tombolKlik()" class="btn">
+            Klik di sini
+        </button>
 
-    <div id="tempatGambar"></div>
-</div>
+        <div id="tempatGambar"></div>
+    </div>
 </section>
 
 <!-- 💸 UANG -->
@@ -79,12 +77,19 @@
     <source src="cash.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🔥 FOOTER (PINDAH KE BAWAH) -->
-<footer>
-    <p>© 2026 CY BOTAK | Legal Tech Future</p>
-</footer>
+<!-- 🔥 POPUP CONTACT -->
+<div id="popupKontak" class="popup">
+    <div class="popup-content">
+        <h3>Contact Us</h3>
+        <p>📞 +62 812-XXXX-XXXX</p>
+        <p>📧 lawfirm@email.com</p>
+        <button onclick="tutupKontak()">Close</button>
+    </div>
+</div>
 
-<button id="scrollTop" onclick="scrollKeAtas()">↑</button>
+<footer>
+    <p>© 2026 CY BOTAK LAW FIRM</p>
+</footer>
 
 <script src="script.js"></script>
 

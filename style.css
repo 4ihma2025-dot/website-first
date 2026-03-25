@@ -14,30 +14,22 @@ p {
     color: #333;
 }
 
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #1976d2;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+/* CONTAINER */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-a:hover {
-    background-color: #0d47a1;
-}
-
-/* GAMBAR UTAMA */
+/* GAMBAR */
 img {
     width: 100%;
     max-width: 300px;
     border-radius: 10px;
     margin-top: 20px;
-    transition: 0.3s; /* animasi halus */
+    transition: 0.3s;
 }
 
-/* 🔥 BONUS HOVER DI SINI */
 img:hover {
     transform: scale(1.05);
 }
@@ -50,7 +42,6 @@ img:hover {
 
 /* TOMBOL */
 .btn-biru {
-    display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
     background-color: #1976d2;
@@ -64,9 +55,27 @@ img:hover {
     background-color: #0d47a1;
 }
 
-/* CONTAINER */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* 💸 ANIMASI DUIT */
+#uangContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.uang {
+    position: absolute;
+    animation: jatuh 3s linear forwards;
+}
+
+@keyframes jatuh {
+    0% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }

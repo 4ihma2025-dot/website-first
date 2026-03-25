@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>TEST</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,31 +12,25 @@
     <p>ahihihihi</p>
     
     <div class="container">
+        <!-- GAMBAR -->
         <img src="https://pbs.twimg.com/media/EvImwoQUcAEsiM5.jpg" 
              alt="gambar" 
-             onclick="klikGambar()">
+             onclick="klikGambar(); keluarUang()">
 
-        <button onclick="tombolKlik()" class="btn-biru">Klik di sini</button>
+        <!-- TOMBOL -->
+        <button onclick="tombolKlik(); keluarUang()" class="btn-biru">
+            Klik di sini 💸
+        </button>
 
-        <!-- 🔥 WAJIB ADA -->
+        <!-- TEMPAT GIF -->
         <div id="tempatGambar"></div>
     </div>
 
-    <script>
-    function halo() {
-        alert("Halo, dari aku CY BOTAK 😎");
-    }
+    <!-- TEMPAT UANG -->
+    <div id="uangContainer"></div>
 
-    function klikGambar() {
-        var tempat = document.getElementById("tempatGambar");
-
-        tempat.innerHTML += '<img src="https://i.pinimg.com/originals/0e/1d/ce/0e1dce10fab9b554efeb15e832290675.gif">';
-    }
-
-    function tombolKlik() {
-        alert("TUGAS AKHIR DIKERJAIN BOIII 🙊 coba klik gambar cy");
-    }        
-    </script>
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
 
 </body>
 </html>

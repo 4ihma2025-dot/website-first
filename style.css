@@ -1,5 +1,12 @@
-body {
+/* RESET */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: #f5f5f7;
     color: #1d1d1f;
@@ -14,7 +21,104 @@ body {
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     padding: 15px 40px;
+}
+
+/* NAV MENU */
+.navbar ul {
+    list-style: none; /* 🔥 ini yang hilang tadi */
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.hero p {
+    color: #6e6e73;
+    margin-top: 10px;
+}
+
+/* BUTTON */
+.cta, .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+
+    background: #0071e3;
+    color: white;
+
+    transition: 0.3s;
+}
+
+.cta:hover, .btn:hover {
+    background: #005bb5;
+}
+
+/* SECTION */
+section {
+    padding: 60px 20px;
+}
+
+/* SKILLS */
+.skill-box {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.03);
+}
+
+/* FADE */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* DARK MODE */
@@ -31,10 +135,18 @@ body {
     background: rgba(0,0,0,0.5);
 }
 
-/* BUTTON */
-.navbar button {
+/* SCROLL BUTTON */
+#scrollTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+
+    padding: 10px 15px;
+    border-radius: 50%;
     border: none;
-    background: transparent;
-    font-size: 18px;
+
+    background: #0071e3;
+    color: white;
     cursor: pointer;
 }

@@ -15,3 +15,20 @@ function tutupKontak() {
 function toggleDark() {
     document.body.classList.toggle("dark");
 }
+
+function kirimEmail() {
+
+    let nama = document.getElementById("nama").value;
+    let email = document.getElementById("email").value;
+    let pesan = document.getElementById("pesan").value;
+
+    emailjs.send("service_kiwb7s5", "template_ahgmi1p", {
+        nama: nama,
+        email: email,
+        pesan: pesan
+    }).then(function(response) {
+        alert("Email berhasil dikirim 🚀");
+    }, function(error) {
+        alert("Gagal mengirim ❌");
+    });
+}

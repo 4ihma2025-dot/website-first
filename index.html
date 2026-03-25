@@ -70,7 +70,7 @@
 </section>
 
 <!-- 💸 UANG -->
-<div id="uangContainer"></div>
+<div id="uangContainer"></div>  
 
 <!-- 🔊 AUDIO -->
 <audio id="suaraUang">
@@ -81,10 +81,16 @@
 <!-- 🔥 POPUP CONTACT -->
 <div id="popupKontak" class="popup">
     <div class="popup-content">
+
         <h3>Contact Us</h3>
-        <p>📞 +62 812-XXXX-XXXX</p>
-        <p>📧 lawfirm@email.com</p>
+
+        <input type="text" id="nama" placeholder="Nama"><br><br>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <textarea id="pesan" placeholder="Pesan"></textarea><br><br>
+
+        <button onclick="kirimEmail()">Kirim</button>
         <button onclick="tutupKontak()">Close</button>
+
     </div>
 </div>
 
@@ -93,6 +99,14 @@
 </footer>
 
 <script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("qNHxlrl5VTeLonPpm");
+})();
+</script>
 
 </body>
 </html>

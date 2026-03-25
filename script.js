@@ -1,5 +1,5 @@
 function tombolKlik() {
-    alert("TUGAS AKHIR DIKERJAIN BOIII 🙊 coba klik gambar cy");
+        alert("TUGAS AKHIR DIKERJAIN BOIII 🙊 UNTUK SEKARANG, RANGKUL YANG MAU SEJALAN, SELEBIHNYA HATI-HATI DIJALAN #PRINSIP #IZIIIN");
 }
 
 function klikGambar() {
@@ -18,8 +18,9 @@ function tampilkanGif() {
 function keluarUang() {
     var container = document.getElementById("uangContainer");
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 80; i++) {
         setTimeout(() => {
+
             let uang = document.createElement("div");
             uang.className = "uang";
 
@@ -30,11 +31,13 @@ function keluarUang() {
 
             container.appendChild(uang);
 
+            mainkanKoin(); // 🔥 suara tiap uang keluar
+
             setTimeout(() => {
                 uang.remove();
             }, 3000);
 
-        }, i * 70);
+        }, i * 50);
     }
 }
 
@@ -49,4 +52,11 @@ function mainkanSuara() {
     }).catch((error) => {
         console.log("Audio error:", error);
     });
+}
+
+function mainkanKoin() {
+    var audio = document.getElementById("suaraKoin");
+
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
 }

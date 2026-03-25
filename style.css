@@ -4,24 +4,12 @@ body {
     text-align: center;
 }
 
-h1 {
-    color: #0d47a1;
-    font-size: 40px;
-}
-
-p {
-    font-size: 18px;
-    color: #333;
-}
-
-/* CONTAINER */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* GAMBAR */
 img {
     width: 100%;
     max-width: 300px;
@@ -34,13 +22,11 @@ img:hover {
     transform: scale(1.05);
 }
 
-/* GIF */
 #tempatGambar img {
     width: 220px;
     margin-top: 15px;
 }
 
-/* TOMBOL */
 .btn-biru {
     margin-top: 15px;
     padding: 10px 20px;

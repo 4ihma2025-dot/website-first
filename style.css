@@ -1,0 +1,36 @@
+body {
+    background-color: #e3f2fd;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #0d47a1;
+    font-size: 40px;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1976d2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #0d47a1;
+}img {
+    margin-top: 10px;
+    border-radius: 5px;
+}img {
+    width: 200px;
+    border-radius: 10px;
+    margin-top: 20px;
+}

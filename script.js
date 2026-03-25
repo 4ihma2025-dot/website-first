@@ -50,12 +50,25 @@ function keluarUang() {
 function klikGambar() {
     tampilkanGif();
     keluarUang();
-    mainkanSuara();
+    mainkanSuara(); // 
 }
 
 function mainkanSuara() {
     var audio = document.getElementById("suaraUang");
-    audio.currentTime = 0; // biar bisa diputar ulang
-    audio.volume = 0.5;
-audio.play();
+
+    audio.currentTime = 0;
+
+    audio.play().catch(function(error) {
+        console.log("Audio gagal:", error);
+    });
+
+}
+
+function klikGambar() {
+    tampilkanGif();
+    keluarUang();
+    mainkanSuara(); // 🔥 INI PENTING
+    function tombolKlik() {
+    mainkanSuara();
+    alert("TES SUARA");
 }

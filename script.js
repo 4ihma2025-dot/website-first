@@ -1,18 +1,13 @@
-
-// 🔥 TOMBOL → HANYA ALERT
 function tombolKlik() {
     alert("TUGAS AKHIR DIKERJAIN BOIII 🙊 coba klik gambar cy");
 }
 
-
-// 🔥 GAMBAR → GIF + DUIT
 function klikGambar() {
+    mainkanSuara(); //
     tampilkanGif();
     keluarUang();
 }
 
-
-// 🔥 GIF
 function tampilkanGif() {
     var tempat = document.getElementById("tempatGambar");
 
@@ -20,21 +15,17 @@ function tampilkanGif() {
     '<img src="https://i.pinimg.com/originals/0e/1d/ce/0e1dce10fab9b554efeb15e832290675.gif">';
 }
 
-
-// 💸 ANIMASI DUIT
 function keluarUang() {
     var container = document.getElementById("uangContainer");
 
     for (let i = 0; i < 60; i++) {
         setTimeout(() => {
-
             let uang = document.createElement("div");
-            uang.classList.add("uang");
+            uang.className = "uang";
 
             uang.innerHTML = ["💸","💵","🪙"][Math.floor(Math.random()*3)];
 
             uang.style.left = Math.random() * 100 + "%";
-
             uang.style.fontSize = (20 + Math.random() * 30) + "px";
 
             container.appendChild(uang);
@@ -47,28 +38,15 @@ function keluarUang() {
     }
 }
 
-function klikGambar() {
-    tampilkanGif();
-    keluarUang();
-    mainkanSuara(); // 
-}
-
 function mainkanSuara() {
     var audio = document.getElementById("suaraUang");
 
+    audio.pause(); // reset dulu
     audio.currentTime = 0;
 
-    audio.play().catch(function(error) {
-        console.log("Audio gagal:", error);
+    audio.play().then(() => {
+        console.log("Audio berhasil 🔊");
+    }).catch((error) => {
+        console.log("Audio error:", error);
     });
-
-}
-
-function klikGambar() {
-    tampilkanGif();
-    keluarUang();
-    mainkanSuara(); // 🔥 INI PENTING
-    function tombolKlik() {
-    mainkanSuara();
-    alert("TES SUARA");
 }

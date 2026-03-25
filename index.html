@@ -47,7 +47,6 @@
             background-color: #0d47a1;
         }
 
-        /* 💸 ANIMASI DUIT */
         #uangContainer {
             position: fixed;
             top: 0;
@@ -92,9 +91,10 @@
 
     <div id="uangContainer"></div>
 
+    <!-- 🔊 AUDIO -->
     <audio id="suaraUang">
-    <source src="cash-sound.mp3" type="audio/mpeg">
-</audio>
+        <source src="cash.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
     function tombolKlik() {
@@ -104,6 +104,7 @@
     function klikGambar() {
         tampilkanGif();
         keluarUang();
+        mainkanSuara(); // 🔥 SUARA DI SINI
     }
 
     function tampilkanGif() {
@@ -135,6 +136,15 @@
 
             }, i * 50);
         }
+    }
+
+    function mainkanSuara() {
+        var audio = document.getElementById("suaraUang");
+
+        audio.currentTime = 0;
+        audio.play().catch(function(error) {
+            console.log("Audio gagal:", error);
+        });
     }
     </script>
 

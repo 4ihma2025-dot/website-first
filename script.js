@@ -46,3 +46,16 @@ function keluarUang() {
         }, i * 70);
     }
 }
+
+function klikGambar() {
+    tampilkanGif();
+    keluarUang();
+    mainkanSuara();
+}
+
+function mainkanSuara() {
+    var audio = document.getElementById("suaraUang");
+    audio.currentTime = 0; // biar bisa diputar ulang
+    audio.volume = 0.5;
+audio.play();
+}

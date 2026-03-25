@@ -60,3 +60,16 @@ function mainkanKoin() {
     audio.currentTime = 0;
     audio.play().catch(() => {});
 }
+
+window.addEventListener("scroll", function() {
+    const elements = document.querySelectorAll(".fade");
+
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+
+        if (position < screen - 100) {
+            el.classList.add("show");
+        }
+    });
+});

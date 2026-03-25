@@ -108,7 +108,7 @@ section {
     padding: 80px 20px;
 }
 
-.about, .skills, .project {
+.about, .practice area, .OUR TEAM💸{
     max-width: 900px;
     margin: auto;
     text-align: center;
@@ -303,4 +303,27 @@ section p {
 .card:hover {
     transform: translateY(-5px);
     transition: 0.3s;
+}
+
+.skills {
+    text-align: center;
+    max-width: 900px;
+    margin: 80px auto;
+}
+
+.skill-box {
+    display: flex;
+    justify-content: center; /* 🔥 ini bikin ke tengah */
+    flex-wrap: wrap; /* biar rapi kalau kepanjangan */
+    gap: 20px;
+}
+
+.skill-box p {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    font-size: 14px;
 }

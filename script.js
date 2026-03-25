@@ -73,3 +73,41 @@ window.addEventListener("scroll", function() {
         }
     });
 });
+
+// DARK MODE
+function toggleDark() {
+    document.body.classList.toggle("dark");
+}
+
+// SCROLL BUTTON
+window.addEventListener("scroll", function() {
+    let btn = document.getElementById("scrollTop");
+
+    if (window.scrollY > 300) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
+
+// SCROLL KE ATAS
+function scrollKeAtas() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// FADE ANIMATION
+window.addEventListener("scroll", function() {
+    const elements = document.querySelectorAll(".fade");
+
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+
+        if (position < screen - 100) {
+            el.classList.add("show");
+        }
+    });
+});

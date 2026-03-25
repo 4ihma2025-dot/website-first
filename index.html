@@ -1,156 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TEST</title>
-
-    <style>
-        body {
-            background-color: #e3f2fd;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        #tempatGambar img {
-            width: 220px;
-            margin-top: 15px;
-        }
-
-        .btn-biru {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #1976d2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn-biru:hover {
-            background-color: #0d47a1;
-        }
-
-        #uangContainer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            pointer-events: none;
-        }
-
-        .uang {
-            position: absolute;
-            animation: jatuh 3s linear forwards;
-        }
-
-        @keyframes jatuh {
-            0% {
-                transform: translateY(-50px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-    </style>
+    <title>CY BOTAK Portfolio 🚀</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h2>💸 CY BOTAK MONEY MACHINE 💸</h2>
-    <h1>Hawooo, akulah CY BOTAK! 👋</h1>
-    <p>ahihihihi</p>
-    
-    <div class="container">
+<!-- 🔥 NAVBAR -->
+<nav>
+    <h2>CY BOTAK</h2>
+</nav>
+
+<!-- 🔥 HERO -->
+<section class="hero">
+    <h1>Halo 👋 Saya CY BOTAK</h1>
+    <p>Mahasiswa Hukum yang belajar Coding & Legal Tech 🚀</p>
+</section>
+
+<!-- 🔥 ABOUT -->
+<section class="about">
+    <h2>Tentang Saya</h2>
+    <p>
+        Saya tertarik pada dunia hukum dan teknologi (Legal Tech).
+        Saat ini saya sedang belajar membuat website interaktif.
+    </p>
+</section>
+
+<!-- 🔥 PROJECT -->
+<section class="project">
+    <h2>Project Saya 💸</h2>
+
+    <div class="card">
         <img src="https://pbs.twimg.com/media/EvImwoQUcAEsiM5.jpg" 
              onclick="klikGambar()">
 
-        <button onclick="tombolKlik()" class="btn-biru">
+        <button onclick="tombolKlik()" class="btn">
             Klik di sini
         </button>
 
         <div id="tempatGambar"></div>
     </div>
+</section>
 
-    <div id="uangContainer"></div>
+<!-- 💸 UANG -->
+<div id="uangContainer"></div>
 
-    <!-- 🔊 AUDIO -->
-    <audio id="suaraUang">
-        <source src="cash.mp3" type="audio/mpeg">
-        <audio id="suaraUang" preload="auto"></audio>
-        <audio id="suaraKoin">
-    <source src="coin.mp3" type="audio/mpeg">
-    </audio>
-    
-    <script>
-    function tombolKlik() {
-        alert("TUGAS AKHIR DIKERJAIN BOIII 🙊 UNTUK SEKARANG, RANGKUL YANG MAU SEJALAN, SELEBIHNYA HATI-HATI DIJALAN #PRINSIP #IZIIIN");
-    }
+<!-- 🔊 AUDIO -->
+<audio id="suaraUang">
+    <source src="cash.mp3" type="audio/mpeg">
+</audio>
 
-    function klikGambar() {
-        tampilkanGif();
-        keluarUang();
-        mainkanSuara(); // 🔥 SUARA DI SINI
-    }
-
-    function tampilkanGif() {
-        var tempat = document.getElementById("tempatGambar");
-
-        tempat.innerHTML += 
-        '<img src="https://i.pinimg.com/originals/0e/1d/ce/0e1dce10fab9b554efeb15e832290675.gif">';
-    }
-
-    function keluarUang() {
-        var container = document.getElementById("uangContainer");
-
-        for (let i = 0; i < 80; i++) {
-            setTimeout(() => {
-
-                let uang = document.createElement("div");
-                uang.className = "uang";
-
-                uang.innerHTML = ["💸","💵","🪙"][Math.floor(Math.random()*3)];
-
-                uang.style.left = Math.random() * 100 + "%";
-                uang.style.fontSize = (20 + Math.random() * 30) + "px";
-
-                container.appendChild(uang);
-
-                setTimeout(() => {
-                    uang.remove();
-                }, 3000);
-
-            }, i * 50);
-        }
-    }
-
-    function mainkanSuara() {
-        var audio = document.getElementById("suaraUang");
-
-        audio.currentTime = 0;
-        audio.play().catch(function(error) {
-            console.log("Audio gagal:", error);
-        });
-    }
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>

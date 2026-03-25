@@ -1,56 +1,73 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
+    background: #f5f7fa;
+}
+
+/* NAVBAR */
+nav {
+    background: #111;
+    color: white;
+    padding: 15px;
     text-align: center;
-
-    /* 🌈 background gradient */
-    background: linear-gradient(135deg, #74ebd5, #9face6);
 }
 
-/* CARD UTAMA */
-.container {
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* ABOUT */
+.about {
+    padding: 40px;
+    text-align: center;
+}
+
+/* PROJECT */
+.project {
+    padding: 40px;
+    text-align: center;
+}
+
+/* CARD */
+.card {
     background: white;
-    max-width: 400px;
-    margin: 80px auto;
-    padding: 30px;
-    border-radius: 20px;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 15px;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.container:hover {
-    transform: translateY(-5px);
-}
-
-/* TITLE */
-h1 {
-    color: #333;
-    font-size: 26px;
-}
-
-/* TEXT */
-p {
-    color: #666;
-}
-
-/* GAMBAR */
+/* IMAGE */
 img {
     width: 100%;
-    max-width: 250px;
-    border-radius: 15px;
-    margin-top: 20px;
-
+    border-radius: 10px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
 img:hover {
     transform: scale(1.05);
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #5a67d8;
 }
 
 /* GIF */
@@ -59,33 +76,10 @@ img:hover {
     margin-top: 15px;
 }
 
-/* TOMBOL MODERN */
-.btn-biru {
-    margin-top: 20px;
-    padding: 12px 25px;
-
-    background: linear-gradient(45deg, #2196f3, #21cbf3);
-    color: white;
-
-    border: none;
-    border-radius: 25px;
-
-    font-weight: bold;
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.btn-biru:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
 /* 💸 UANG */
 #uangContainer {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     pointer-events: none;
 }
@@ -95,14 +89,13 @@ img:hover {
     animation: jatuh 3s linear forwards;
 }
 
-/* animasi jatuh lebih smooth */
 @keyframes jatuh {
     0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform: translateY(-50px);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translateY(100vh);
         opacity: 0;
     }
 }

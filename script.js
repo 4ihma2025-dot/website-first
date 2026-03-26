@@ -46,3 +46,12 @@ links.forEach(link => {
         link.classList.add("active");
     }
 });
+
+fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+    })
+    .catch(err => {
+        console.error("Navbar gagal load:", err);
+    });

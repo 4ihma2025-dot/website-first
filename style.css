@@ -51,20 +51,48 @@ body {
     overflow: hidden;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+
+    width: 200%;
+    height: 200%;
+
+    background: radial-gradient(circle at center, rgba(0,113,227,0.2), transparent 70%);
+
+    animation: ombak 8s ease-in-out infinite;
+}
+
+@keyframes ombak {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .hero::after {
     content: "";
     position: absolute;
-    width: 300px;
-    height: 300px;
+    bottom: -60%;
 
-    background: radial-gradient(circle, rgba(0,113,227,0.3), transparent);
+    width: 200%;
+    height: 200%;
 
-    animation: glow 6s infinite alternate;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
+
+    animation: ombak2 10s ease-in-out infinite;
 }
 
-@keyframes glow {
-    0% { transform: translate(-50px, -50px); }
-    100% { transform: translate(200px, 200px); }
+@keyframes ombak2 {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-150px); }
+    100% { transform: translateY(0); }
 }
 
 /* BUTTON */
@@ -207,4 +235,30 @@ html {
     margin-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.2);
     padding-top: 10px;
+}
+
+.divider {
+    width: 60%;
+    height: 2px;
+    margin: 50px auto;
+
+    background: linear-gradient(to right, transparent, #7dd3fc, transparent);
+}
+
+.skill-item {
+    padding: 12px 20px;
+    border-radius: 999px;
+
+    border: 1px solid rgba(125,211,252,0.5);
+
+    text-decoration: none;
+    color: #e5e7eb;
+
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT 🔥 */
+.skill-item:hover {
+    background: rgba(125,211,252,0.2);
+    transform: scale(1.05);
 }

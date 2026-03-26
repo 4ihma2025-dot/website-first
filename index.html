@@ -12,8 +12,19 @@
     <h2>CY BOTAK LAW FIRM</h2>
 
     <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+            <a href="#">Practice Areas ▾</a>
+
+            <ul class="dropdown-menu">
+                <li><a href="corporate.html">Corporate Law</a></li>
+                <li><a href="contract.html">Contract Law</a></li>
+                <li><a href="business.html">Business Advisory</a></li>
+                <li><a href="legaltech.html">Legal Tech</a></li>
+            </ul>
+        </li>
+
         <li><a href="#team">Our Team</a></li>
     </ul>
 
@@ -28,6 +39,20 @@
 
         <button class="cta" onclick="bukaKontak()">Contact Us</button>
     </div>
+    <div id="popupKontak" class="popup">
+    <div class="popup-content">
+
+        <h3>Contact Us</h3>
+
+        <input type="text" id="nama" placeholder="Nama"><br><br>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <textarea id="pesan" placeholder="Pesan"></textarea><br><br>
+
+        <button onclick="kirimEmail()">Kirim</button>
+        <button onclick="tutupKontak()">Close</button>
+
+    </div>
+</div>
 </section>
 
 <!-- 🔥 ABOUT -->
@@ -47,10 +72,10 @@
 
     <div class="skill-box">
 
-    <a href="#" class="skill-item">⚖️ Corporate Law</a>
-    <a href="#" class="skill-item">📜 Contract Law</a>
-    <a href="#" class="skill-item">💼 Business Advisory</a>
-    <a href="#" class="skill-item">🌐 Legal Tech</a>
+    <a href="corporate.html" class="skill-item">⚖️ Corporate Law</a>
+    <a href="contract.html" class="skill-item">📜 Contract Law</a>
+    <a href="business.html" class="skill-item">💼 Business Advisory</a>
+    <a href="legaltech.html" class="skill-item">🌐 Legal Tech</a>
 
 </div>
 </section>

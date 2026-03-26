@@ -262,3 +262,50 @@ html {
     background: rgba(125,211,252,0.2);
     transform: scale(1.05);
 }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background: #111827;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: none;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 🔥 HOVER MUNCUL */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    color: gold;
+}
+
+.dropdown-menu {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}

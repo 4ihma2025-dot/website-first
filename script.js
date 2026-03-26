@@ -7,10 +7,9 @@ fetch("navbar.html")
 
 
 // SPA LOAD PAGE
-function loadPage(page) {
+function loadPage(page, section = null) {
     const app = document.getElementById("app");
 
-    // fade out
     app.style.opacity = 0;
 
     setTimeout(() => {
@@ -20,10 +19,15 @@ function loadPage(page) {
                 app.innerHTML = data;
                 app.style.opacity = 1;
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+                if (section) {
+                    setTimeout(() => {
+                        document.getElementById(section).scrollIntoView({
+                            behavior: "smooth"
+                        });
+                    }, 300);
+                } else {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                }
             });
     }, 200);
 }
@@ -38,4 +42,8 @@ window.onload = function() {
 // DARK MODE
 function toggleDark() {
     document.body.classList.toggle("dark");
+}
+
+function tombolKlik() {
+    alert("TUGAS AKHIR DIKERJAIN BOIIII 🔥");
 }

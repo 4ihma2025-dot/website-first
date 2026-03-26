@@ -319,3 +319,70 @@ html {
     color: gold;
     border-bottom: 2px solid gold;
 }
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: #111827;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    display: none;
+    background: #1f2937;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    transition: opacity 0.3s ease;
+}
+
+.skill-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skill-item {
+    padding: 10px 20px;
+    border: 1px solid #38bdf8;
+    border-radius: 999px;
+}
+
+.divider {
+    height: 2px;
+    background: #38bdf8;
+    width: 50%;
+    margin: 40px auto;
+}

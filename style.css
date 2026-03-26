@@ -95,6 +95,11 @@ body {
     100% { transform: translateY(0); }
 }
 
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+}
+
 /* BUTTON */
 .cta {
     margin-top: 20px;
@@ -308,4 +313,9 @@ html {
     opacity: 1;
     transform: translateY(0);
     display: block;
+}
+
+.active {
+    color: gold;
+    border-bottom: 2px solid gold;
 }

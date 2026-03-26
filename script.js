@@ -47,3 +47,42 @@ function toggleDark() {
 function tombolKlik() {
     alert("TUGAS AKHIR DIKERJAIN BOIIII 🔥");
 }
+
+// SCROLL EFFECT
+window.addEventListener("scroll", function () {
+
+    // NAVBAR EFFECT
+    const navbar = document.querySelector(".navbar");
+
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+
+    // FADE IN SECTION
+    const elements = document.querySelectorAll(".fade");
+
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+
+        if (position < screen - 100) {
+            el.classList.add("show");
+        }
+    });
+
+});
+
+const links = document.querySelectorAll(".navbar a");
+
+links.forEach(link => {
+    link.addEventListener("click", function () {
+        links.forEach(l => l.classList.remove("active"));
+        this.classList.add("active");
+    });
+});
+
+document.querySelectorAll(".fade").forEach(el => {
+    el.classList.add("show");
+});

@@ -100,3 +100,25 @@ window.addEventListener("scroll", function() {
         }
     });
 });
+
+window.addEventListener("load", function() {
+    setTimeout(() => {
+        document.getElementById("loader").classList.add("hide");
+    }, 1000);
+});
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}

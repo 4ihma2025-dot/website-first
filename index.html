@@ -10,40 +10,47 @@
 <!-- NAVBAR -->
 <nav class="navbar">
     <h2>CY BOTAK</h2>
+
     <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#practice">Practice</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+
+        <li class="dropdown">
+            <a href="#">Practice ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="corporate.html">Corporate</a></li>
+                <li><a href="contract.html">Contract</a></li>
+                <li><a href="business.html">Business</a></li>
+                <li><a href="legaltech.html">Legal Tech</a></li>
+            </ul>
+        </li>
+
         <li><a href="#team">Team</a></li>
     </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-    <div class="hero-content">
-        <h1>Legal Excellence & Integrity</h1>
-        <p>Trusted legal solutions for modern business</p>
-        <button class="cta">Contact Us</button>
-    </div>
+<section class="hero">
+    <h1>Legal Excellence & Integrity</h1>
+    <p>Trusted legal solutions for modern business</p>
+    <button class="cta">Contact Us</button>
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section class="about">
     <h2>About Our Firm</h2>
-    <p>
-        We provide strategic legal solutions combining legal expertise and technology.
-    </p>
+    <p>Modern legal practice with technology.</p>
 </section>
 
-<!-- PRACTICE AREA -->
-<section class="practice" id="practice">
+<!-- PRACTICE -->
+<section class="practice">
     <h2>Practice Areas</h2>
 
     <div class="practice-container">
-        <div class="circle">Corporate</div>
-        <div class="circle">Contract</div>
-        <div class="circle">Business</div>
-        <div class="circle">Legal Tech</div>
+        <a href="corporate.html" class="circle">Corporate</a>
+        <a href="contract.html" class="circle">Contract</a>
+        <a href="business.html" class="circle">Business</a>
+        <a href="legaltech.html" class="circle">Legal Tech</a>
     </div>
 </section>
 
@@ -58,15 +65,8 @@
     </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
-    <h2>Contact Us</h2>
-    <button class="cta">Get In Touch</button>
-</section>
-
-<!-- FOOTER -->
 <footer>
-    <p>© 2026 CY BOTAK LAW FIRM</p>
+    © 2026 CY BOTAK LAW FIRM
 </footer>
 
 </body>

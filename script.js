@@ -5,8 +5,7 @@ fetch("navbar.html")
         document.getElementById("navbar").innerHTML = data;
     });
 
-
-// SPA LOAD PAGE
+// LOAD PAGE
 function loadPage(page, section = null) {
     const app = document.getElementById("app");
 
@@ -25,112 +24,41 @@ function loadPage(page, section = null) {
                             behavior: "smooth"
                         });
                     }, 300);
-                } else {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
                 }
             });
     }, 200);
 }
 
-
-// LOAD DEFAULT PAGE
+// DEFAULT LOAD
 window.onload = function() {
     loadPage("home.html");
 };
 
-
-// DARK MODE
-function toggleDark() {
-    document.body.classList.toggle("dark");
-}
-
+// ALERT
 function tombolKlik() {
     alert("TUGAS AKHIR DIKERJAIN BOIIII 🔥");
 }
 
-// SCROLL EFFECT
-window.addEventListener("scroll", function () {
-
-    // NAVBAR EFFECT
-    const navbar = document.querySelector(".navbar");
-
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-
-    // FADE IN SECTION
-    const elements = document.querySelectorAll(".fade");
-
-    elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        const screen = window.innerHeight;
-
-        if (position < screen - 100) {
-            el.classList.add("show");
-        }
-    });
-
-});
-
-const links = document.querySelectorAll(".navbar a");
-
-links.forEach(link => {
-    link.addEventListener("click", function () {
-        links.forEach(l => l.classList.remove("active"));
-        this.classList.add("active");
-    });
-});
-
-document.querySelectorAll(".fade").forEach(el => {
-    el.classList.add("show");
-});
-
-// REVEAL ANIMATION
-window.addEventListener("scroll", function() {
-    const elements = document.querySelectorAll(".reveal");
-
-    elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        const screen = window.innerHeight;
-
-        if (position < screen - 100) {
-            el.classList.add("show");
-        }
-    });
-});
-
+// LOADER
 window.addEventListener("load", function() {
     setTimeout(() => {
         document.getElementById("loader").classList.add("hide");
     }, 1000);
 });
 
-document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", function(e) {
+// CURSOR
+const cursor = document.querySelector(".cursor");
 
-        if (this.href.includes("#")) return;
-
-        e.preventDefault();
-        document.body.classList.add("fade-out");
-
-        setTimeout(() => {
-            window.location = this.href;
-        }, 500);
-    });
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
 });
 
-document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", function(e) {
-
-        if (this.href.includes("#")) return;
-
-        e.preventDefault();
-        document.body.classList.add("fade-out");
-
-        setTimeout(() => {
-            window.location = this.href;
-        }, 500);
+// REVEAL
+window.addEventListener("scroll", function() {
+    document.querySelectorAll(".reveal").forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("show");
+        }
     });
 });

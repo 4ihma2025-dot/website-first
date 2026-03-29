@@ -1,9 +1,9 @@
 ```javascript
 // =====================================
-//  CY BOTAX & PARTNERS — Main Script (FIXED SAFE)
+// FINAL SCRIPT (NO ERROR VERSION)
 // =====================================
 
-// DETECT BASE PATH (LEBIH AMAN)
+// BASE PATH (GitHub fix)
 function getBasePath() {
     if (window.location.hostname.includes("github.io")) {
         const parts = window.location.pathname.split("/").filter(Boolean);
@@ -14,93 +14,129 @@ function getBasePath() {
 
 const basePath = getBasePath();
 
-// BUILD PATH (ANTI DOUBLE SLASH)
 function getPath(file) {
     return basePath ? basePath + "/" + file : file;
 }
 
-
-// LOAD NAVBAR (AMAN)
-window.addEventListener("DOMContentLoaded", () => {
+// ======================
+// LOAD NAVBAR
+// ======================
+window.addEventListener("DOMContentLoaded", function () {
     fetch(getPath("navbar.html"))
-        .then(res => {
-            if (!res.ok) throw new Error("Navbar not found");
+        .then(function (res) {
+            if (!res.ok) throw new Error("Navbar error");
             return res.text();
         })
-        .then(data => {
-            const nav = document.getElementById("navbar");
+        .then(function (data) {
+            var nav = document.getElementById("navbar");
             if (nav) {
                 nav.innerHTML = data;
                 initNavbarScroll();
             }
         })
-        .catch(err => console.error("Navbar error:", err));
+        .catch(function (err) {
+            console.error(err);
+        });
 });
 
-
+// ======================
 // LOAD PAGE
-function loadPage(page, section = null, push = true) {
-    const app = document.getElementById("app");
+// ======================
+function loadPage(page, section, push) {
+    if (section === undefined) section = null;
+    if (push === undefined) push = true;
 
+    var app = document.getElementById("app");
     if (!app) return;
 
     app.style.opacity = 0;
-    app.style.transform = "translateY(16px)";
 
-    setTimeout(() => {
+    setTimeout(function () {
         fetch(getPath(page))
-            .then(res => {
-                if (!res.ok) throw new Error("Page not found: " + page);
+            .then(function (res) {
+                if (!res.ok) throw new Error("Page not found");
                 return res.text();
             })
-            .then(data => {
+            .then(function (data) {
                 app.innerHTML = data;
 
-                setTimeout(() => {
-                    app.style.opacity = 1;
-                    app.style.transform = "translateY(0)";
-                    initReveal();
-                }, 60);
+                app.style.opacity = 1;
 
                 if (section) {
-                    setTimeout(() => {
-                        const target = document.getElementById(section);
-                        if (target) target.scrollIntoView({ behavior: "smooth" });
-                    }, 350);
+                    var target = document.getElementById(section);
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
                 } else {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    window.scrollTo(0, 0);
                 }
 
                 if (push) {
-                    history.pushState({ page, section }, "", "#" + page.replace(".html", ""));
+                    history.pushState({}, "", "#" + page.replace(".html", ""));
                 }
+
+                initReveal();
             })
-            .catch(err => {
-                console.error("Page load error:", err);
-                ```
-            app.innerHTML = `
-                <div style="display:flex;align-items:center;justify-content:center;height:60vh;flex-direction:column;gap:20px;">
-                    <h1 style="font-family: Cormorant Garamond, serif; font-size:3rem; color:#b49354;">404</h1>
-                    <p style="color:#8890a4;">Page not found</p>
-                    <button onclick="loadPage(&quot;home.html&quot;)" style="padding:12px 28px;background:#b49354;color:white;border:none;cursor:pointer;letter-spacing:1px;font-size:0.8rem;text-transform:uppercase;">
-                        Return Home
-                    </button>
-                </div>`;
-```
+            .catch(function () {
+                app.innerHTML =
+                    "<div style='text-align:center;padding:80px'>" +
+                    "<h1 style='color:#b49354'>404</h1>" +
+                    "<p>Page not found</p>" +
+                    "<button onclick=\"loadPage('home.html')\">Back Home</button>" +
+                    "</div>";
 
                 app.style.opacity = 1;
-                app.style.transform = "translateY(0)";
             });
-    }, 280);
+    }, 200);
 }
 
+// ======================
+// PRACTICE AUTO GENERATE
+// ======================
+function renderPracticePage(key) {
+    var data = PRACTICES[key];
+    if (!data) return;
 
+    var app = document.getElementById("app");
+
+    var contentHTML = "";
+    for (var i = 0; i < data.content.length; i++) {
+        contentHTML += "<p>" + data.content[i] + "</p>";
+    }
+
+    var servicesHTML = "";
+    for (var j = 0; j < data.services.length; j++) {
+        servicesHTML += "<div class='service-item'><span>⬡</span><p>" + data.services[j] + "</p></div>";
+    }
+
+    app.innerHTML =
+        "<section class='page-hero'>" +
+        "<div class='page-hero-inner'>" +
+        "<h1>" + data.title + "</h1>" +
+        "<p>" + data.desc + "</p>" +
+        "</div></section>" +
+
+        "<div class='page-content'>" +
+        contentHTML +
+        "<div class='gold-line'></div>" +
+        "<h3>Our Services</h3>" +
+        "<div class='services-list'>" +
+        servicesHTML +
+        "</div>" +
+        "<button onclick=\"loadPage('contact.html')\">Contact Us</button>" +
+        "</div>";
+
+    window.scrollTo(0, 0);
+
+    history.pushState({}, "", "#practice-" + key);
+}
+
+// ======================
 // NAVBAR SCROLL
+// ======================
 function initNavbarScroll() {
-    const nav = document.getElementById("mainNav");
+    var nav = document.getElementById("mainNav");
     if (!nav) return;
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
             nav.classList.add("scrolled");
         } else {
@@ -109,115 +145,69 @@ function initNavbarScroll() {
     });
 }
 
-
+// ======================
 // MOBILE MENU
+// ======================
 function toggleMobile() {
-    const menu = document.getElementById("mobileMenu");
-    const hamburger = document.getElementById("hamburger");
-    if (!menu || !hamburger) return;
+    var menu = document.getElementById("mobileMenu");
+    if (!menu) return;
 
-    menu.classList.toggle("open");
-
-    const spans = hamburger.querySelectorAll("span");
     if (menu.classList.contains("open")) {
-        spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
-        spans[1].style.opacity = "0";
-        spans[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+        menu.classList.remove("open");
     } else {
-        spans[0].style.transform = "";
-        spans[1].style.opacity = "";
-        spans[2].style.transform = "";
+        menu.classList.add("open");
     }
 }
 
-
-// REVEAL
+// ======================
+// REVEAL ANIMATION
+// ======================
 function initReveal() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add("show");
-                }, 80);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
+    var items = document.querySelectorAll(".reveal");
 
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    for (var i = 0; i < items.length; i++) {
+        items[i].classList.add("show");
+    }
 }
 
+// ======================
+// BACK BUTTON
+// ======================
+window.onpopstate = function () {
+    var hash = window.location.hash;
 
-// HISTORY
-window.onpopstate = function(event) {
-    if (event.state) {
-        loadPage(event.state.page, event.state.section, false);
+    if (hash.indexOf("#practice-") === 0) {
+        var key = hash.replace("#practice-", "");
+        renderPracticePage(key);
     } else {
         loadPage("home.html", null, false);
     }
 };
 
-
+// ======================
 // INITIAL LOAD
-window.onload = function() {
-    const hash = window.location.hash.replace("#", "");
-    const initialPage = hash ? hash + ".html" : "home.html";
+// ======================
+window.onload = function () {
+    var hash = window.location.hash;
 
-    loadPage(initialPage, null, false);
-
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
+    if (hash.indexOf("#practice-") === 0) {
+        var key = hash.replace("#practice-", "");
+        renderPracticePage(key);
+    } else {
+        var page = hash ? hash.replace("#", "") + ".html" : "home.html";
+        loadPage(page, null, false);
     }
 
-    setTimeout(() => {
-        const loader = document.getElementById("loader");
+    setTimeout(function () {
+        var loader = document.getElementById("loader");
         if (loader) loader.classList.add("hide");
-    }, 1200);
+    }, 800);
 };
 
-
+// ======================
 // DARK MODE
+// ======================
 function toggleDark() {
     document.body.classList.toggle("dark-mode");
-    localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
 }
 ```
-
-function renderPracticePage(key) {
-    const data = PRACTICES[key];
-    if (!data) return;
-
-    const app = document.getElementById("app");
-
-    app.innerHTML = `
-        <section class="page-hero">
-            <div class="page-hero-inner">
-                <div class="page-breadcrumb">Practice Areas → ${data.title}</div>
-                <h1>${data.title}</h1>
-                <p>${data.desc}</p>
-            </div>
-        </section>
-
-        <div class="page-content">
-            ${data.content.map(p => `<p>${p}</p>`).join("")}
-
-            <div class="gold-line"></div>
-
-            <h3 style="font-size:1.6rem;margin-bottom:25px;">Our Services Include</h3>
-
-            <div class="services-list">
-                ${data.services.map(s => `
-                    <div class="service-item">
-                        <span>⬡</span>
-                        <p>${s}</p>
-                    </div>
-                `).join("")}
-            </div>
-
-            <button class="btn-primary" onclick="loadPage('contact.html')" style="margin-top:20px;">
-                Request a Consultation
-            </button>
-        </div>
-    `;
-}
-``

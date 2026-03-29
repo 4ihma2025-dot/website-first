@@ -1,22 +1,86 @@
-<nav class="navbar">
-    <h2>CY BOTAX PARTNERS</h2>
+<nav class="navbar" id="mainNav">
+    <div class="nav-logo" onclick="loadPage('home.html')">
+        <span class="logo-text">CY BOTAX</span>
+        <span class="logo-amp">&</span>
+        <span class="logo-partners">PARTNERS</span>
+    </div>
 
-    <ul>
+    <ul class="nav-links">
         <li><a href="#" onclick="loadPage('home.html')">Home</a></li>
 
         <li class="dropdown">
-            <a href="#">Practices area ▾</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="loadPage('corporate.html')">Corporate & Investment</a></li>
-                <li><a href="#" onclick="loadPage('contract.html')">Commercial & Business</a></li>
-                <li><a href="#" onclick="loadPage('business.html')">Finance & Banking</a></li>
-                <li><a href="#" onclick="loadPage('legaltech.html')">Intellectual Property</a></li>
-            </ul>
+            <a href="#">Practice Areas <span class="chevron">›</span></a>
+            <div class="dropdown-menu">
+                <div class="dropdown-grid">
+                    <a href="#" onclick="loadPage('corporate.html')" class="dropdown-item">
+                        <span class="d-icon">⬡</span>
+                        <div>
+                            <strong>Corporate & Investment</strong>
+                            <p>Company formation & foreign investment</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="loadPage('contract.html')" class="dropdown-item">
+                        <span class="d-icon">⬡</span>
+                        <div>
+                            <strong>Commercial & Business</strong>
+                            <p>Contract drafting & dispute resolution</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="loadPage('business.html')" class="dropdown-item">
+                        <span class="d-icon">⬡</span>
+                        <div>
+                            <strong>Banking & Finance</strong>
+                            <p>Financial transactions & loan agreements</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="loadPage('legaltech.html')" class="dropdown-item">
+                        <span class="d-icon">⬡</span>
+                        <div>
+                            <strong>Intellectual Property</strong>
+                            <p>Trademarks, patents & copyright</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="loadPage('legaltech.html')" class="dropdown-item">
+                        <span class="d-icon">⬡</span>
+                        <div>
+                            <strong>Mergers & Acquisitions</strong>
+                            <p>M&A legal due diligence & structuring</p>
+                        </div>
+                    </a>
+                    <a href="#" onclick="loadPage('legaltech.html')" class="dropdown-item">
+                        <span class="d-icon">⬡</span>
+                        <div>
+                            <strong>Real Estate & Property</strong>
+                            <p>Property transactions & development</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </li>
 
-        <li><a href="#" onclick="loadPage('home.html','team')">About Us</a></li>
+        <li><a href="#" onclick="loadPage('home.html','team')">Our Team</a></li>
         <li><a href="#" onclick="loadPage('contact.html')">Contact</a></li>
     </ul>
 
-    <button onclick="toggleDark()">🌓</button>
+    <div class="nav-actions">
+        <button class="dark-btn" onclick="toggleDark()" title="Toggle theme">
+            <span class="dark-icon">◐</span>
+        </button>
+        <button class="nav-cta" onclick="loadPage('contact.html')">Free Consultation</button>
+    </div>
+
+    <button class="hamburger" onclick="toggleMobile()" id="hamburger">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="loadPage('home.html'); toggleMobile()">Home</a>
+    <a href="#" onclick="loadPage('corporate.html'); toggleMobile()">Corporate & Investment</a>
+    <a href="#" onclick="loadPage('contract.html'); toggleMobile()">Commercial & Business</a>
+    <a href="#" onclick="loadPage('business.html'); toggleMobile()">Banking & Finance</a>
+    <a href="#" onclick="loadPage('legaltech.html'); toggleMobile()">Intellectual Property</a>
+    <a href="#" onclick="loadPage('home.html','team'); toggleMobile()">Our Team</a>
+    <a href="#" onclick="loadPage('contact.html'); toggleMobile()">Contact</a>
+</div>

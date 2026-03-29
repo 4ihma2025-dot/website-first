@@ -309,6 +309,17 @@ footer {
     opacity: 0.6;
 }
 
+/* CONTACT FORM */
+.contact-form input, .contact-form textarea {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+.dark-mode .contact-form input, .dark-mode .contact-form textarea {
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
 /* ANIMATION REVEAL */
 .reveal {
     opacity: 0;

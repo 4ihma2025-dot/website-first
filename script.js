@@ -6,17 +6,18 @@
 // BASE PATH (GitHub fix)
 function getBasePath() {
     if (window.location.hostname.includes("github.io")) {
-        const parts = window.location.pathname.split("/").filter(Boolean);
-        return parts.length > 0 ? "/" + parts[0] : "";
+        return "/website-first/";
     }
     return "";
 }
+```
 
 const basePath = getBasePath();
 
 function getPath(file) {
-    return basePath ? basePath + "/" + file : file;
+    return basePath + file;
 }
+```
 
 // ======================
 // LOAD NAVBAR
@@ -210,4 +211,4 @@ window.onload = function () {
 function toggleDark() {
     document.body.classList.toggle("dark-mode");
 }
-```
+`

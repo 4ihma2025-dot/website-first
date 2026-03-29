@@ -182,3 +182,42 @@ function toggleDark() {
     localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
 }
 ```
+
+function renderPracticePage(key) {
+    const data = PRACTICES[key];
+    if (!data) return;
+
+    const app = document.getElementById("app");
+
+    app.innerHTML = `
+        <section class="page-hero">
+            <div class="page-hero-inner">
+                <div class="page-breadcrumb">Practice Areas → ${data.title}</div>
+                <h1>${data.title}</h1>
+                <p>${data.desc}</p>
+            </div>
+        </section>
+
+        <div class="page-content">
+            ${data.content.map(p => `<p>${p}</p>`).join("")}
+
+            <div class="gold-line"></div>
+
+            <h3 style="font-size:1.6rem;margin-bottom:25px;">Our Services Include</h3>
+
+            <div class="services-list">
+                ${data.services.map(s => `
+                    <div class="service-item">
+                        <span>⬡</span>
+                        <p>${s}</p>
+                    </div>
+                `).join("")}
+            </div>
+
+            <button class="btn-primary" onclick="loadPage('contact.html')" style="margin-top:20px;">
+                Request a Consultation
+            </button>
+        </div>
+    `;
+}
+``

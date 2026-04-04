@@ -2,12 +2,12 @@
  //  CY BOTAX & PARTNERS — Main Script (Enhanced)
  // =====================================
  
- // EmailJS Configuration (User: Register at emailjs.com, add keys below)
- const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';  // e.g. 'user_abc123'
- const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';  // e.g. 'service_def456'
- const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g. 'template_ghi789'
+ // EmailJS Configuration - Updated with your keys (to 4IHMA2025@gmail.com)
+ const EMAILJS_PUBLIC_KEY = 'xyIjh1a6v8hNOKeTJsA7W';  // Your public key
+ const EMAILJS_SERVICE_ID = 'service_kiwb7s5';        // Your service ID
+ const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';      // Create template in EmailJS dashboard with {{user_name}} {{user_email}} etc.
  
- // EmailJS Init (free, sends to 4IHMA2025@gmail.com via your EmailJS dashboard)
+ // EmailJS Init
  emailjs.init(EMAILJS_PUBLIC_KEY);
 
 // LOAD NAVBAR

@@ -7,6 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- EmailJS CDN for contact form emailing -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- SEO Meta -->
+    <meta name="description" content="CY Botax & Partners - Professional legal services in corporate law, M&A, IP, real estate, and more. Free consultation available.">
+    <meta property="og:title" content="CY Botax & Partners ⚖️ - Legal Excellence">
+    <meta property="og:description" content="Strategic legal advisory for businesses and individuals. Corporate, commercial, IP, and international law experts.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200">
+    <meta property="og:url" content="https://yourdomain.com">
 </head>
 <body>
 
@@ -23,12 +31,16 @@
 <div class="cursor"></div>
 <div class="cursor-follower"></div>
 
+<!-- SHARED FOOTER (hidden, loaded into pages) -->
+<div id="shared-footer" style="display: none;"></div>
+
 <!-- NAVBAR -->
 <div id="navbar"></div>
 
 <!-- CONTENT -->
 <div id="app"></div>
 
+<script src="footer.html" id="footer-script" onload="document.getElementById('shared-footer').innerHTML = this.responseText;"></script>
 <script src="script.js"></script>
 </body>
 </html>

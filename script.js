@@ -1,6 +1,14 @@
 // =====================================
-//  CY BOTAX & PARTNERS — Main Script
-// =====================================
+ //  CY BOTAX & PARTNERS — Main Script (Enhanced)
+ // =====================================
+ 
+ // EmailJS Configuration (User: Register at emailjs.com, add keys below)
+ const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';  // e.g. 'user_abc123'
+ const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';  // e.g. 'service_def456'
+ const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g. 'template_ghi789'
+ 
+ // EmailJS Init (free, sends to 4IHMA2025@gmail.com via your EmailJS dashboard)
+ emailjs.init(EMAILJS_PUBLIC_KEY);
 
 // LOAD NAVBAR
 fetch("navbar.html")
@@ -21,12 +29,19 @@ function loadPage(page, section = null, push = true) {
         fetch(page)
             .then(res => res.text())
             .then(data => {
-                app.innerHTML = data;
+                // Load footer
+                fetch('footer.html').then(res => res.text()).then(footerData => {
+                    app.innerHTML = data + footerData;
+                }).catch(() => {
+                    app.innerHTML = data; // Fallback
+                });
 
                 setTimeout(() => {
                     app.style.opacity = 1;
                     app.style.transform = "translateY(0)";
                     initReveal();
+                    initNavbarScroll(); // Re-init navbar
+                    initSFX(); // Init sounds if needed
                 }, 60);
 
                 if (section) {
@@ -112,6 +127,82 @@ window.onpopstate = function(event) {
     }
 };
 
+// Toast Notification System
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add('show'), 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
+}
+
+// SFX System (Subtle professional chimes)
+const sfx = {
+    cash: new Audio('cash.mp3'),
+    coin: new Audio('coin.mp3')
+};
+function playSFX(name, volume = 0.3) {
+    const audio = sfx[name];
+    if (audio) {
+        audio.volume = volume;
+        audio.currentTime = 0;
+        audio.play().catch(() => {}); // Ignore autoplay policy
+    }
+}
+function initSFX() {
+    // Add to buttons/CTAs
+    document.querySelectorAll('.btn-primary, .nav-cta, .pa-card, .cta-phone').forEach(el => {
+        el.addEventListener('mouseenter', () => playSFX('coin'));
+        el.addEventListener('click', () => playSFX('cash'));
+    });
+}
+
+// Global Contact Form Handler
+function handleContactForm(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    
+    // Form data
+    const formData = {
+        user_name: form.querySelector('[name="user_name"]').value || 'N/A',
+        user_email: form.querySelector('[name="user_email"]').value || 'N/A',
+        user_phone: form.querySelector('[name="user_phone"]').value || 'N/A',
+        practice_area: form.querySelector('[name="practice_area"]').value || 'N/A',
+        message: form.querySelector('[name="user_message"]').value || 'No message'
+    };
+    
+    // TODO: Replace with your EmailJS keys after registration
+    if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+        showToast('Please configure EmailJS keys in script.js first!', 'error');
+        btn.textContent = originalText;
+        btn.disabled = false;
+        return;
+    }
+    
+    // Send via EmailJS (to 4IHMA2025@gmail.com)
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+        .then(() => {
+            showToast('Message sent successfully! We\'ll reply within 1 business day.', 'success');
+            form.reset();
+        }, (error) => {
+            console.error('EmailJS error:', error);
+            showToast('Send failed. Please try again or email info@cybotax.com.vn', 'error');
+        })
+        .finally(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+        });
+}
+
 // DEFAULT LOAD
 window.onload = function() {
     const hash = window.location.hash.replace("#", "");
@@ -128,6 +219,8 @@ window.onload = function() {
         const loader = document.getElementById("loader");
         if (loader) loader.classList.add("hide");
     }, 1200);
+    
+    initSFX(); // Initial SFX setup
 };
 
 // DARK MODE
